@@ -1,0 +1,220 @@
+{
+    "language": "Dutch",
+    "primaryColor": "#1F1F1FFF",
+    "secondaryColor": "#e17055FF",
+    "loadingColor": "#FFFFFFFF",
+    "backgroundColor": "#FFFFFFFF",
+    "primaryTextColor": "#005f73FF",
+    "secondaryTextColor": "#e85363FF",
+    "loadingIndicator": "#1F1F1FFF",
+    "introscreen":
+    {
+        "backgroundColor": "#222222FF",
+        "textColor": "#FFFFFFFF"
+    },
+    "experiencesScreen":
+    {
+        "backgroundColor": "#222222FF",
+        "textColor": "#FFFFFFFF",
+        "transBackground": "#FFFFFF00",
+        "newProjButton": "#005DECFF",
+        "newProjButtonText": "#FFFFFFFF"
+    },
+    "createProjectScreen":
+    {
+        "backgroundColor": "#222222FF",
+        "inputtitleColor": "#FFFFFFFF",
+        "buttonColor": "#FFFFFFFF",
+        "title": "#FFFFFFFF",
+        "overlayBackground": "#FFFFFFFF",
+        "overlayText": "#000000FF",
+        "overlayBackgroundBackground": "#000000BB",
+        "LoadingIcon": "#000000FF",
+        "overlayCloseButtonBackground": "#414141FF",
+        "overlayCloseButtonTextColor": "#FFFFFFFF",
+        "filepathText": "#FFFFFFFF",
+        "submitButtonColor": "#005DECFF",
+        "submitButtonTextColor": "#FFFFFFFF",
+        "backArrow": "#FFFFFFFF"
+    },
+    "editorScene":
+    {
+        "backgroundColor": "#222222FF",
+        "thumbnailTint": "#FFFFFFFF",
+        "actuatorsBackgroud": "#333333FF"
+    },
+    "button": {
+        "backgroundColor": "#00a1deFF",
+        "textColor": "#FFFFFFFF"
+    },
+    "dropdown": {
+        "backgroundColor": "#fab1a0FF",
+        "textColor": "#FFFFFFFF",
+        "scrollbar": {
+            "backgroundColor": "#FFE4D3FF",
+            "handleColor": "#fab1a0FF"
+        }
+    },
+    "slider": {
+        "backgroundColor": "#d3d3d3FF",
+        "fillColor": "#e37222",
+        "handleColor": "#00a1deFF",
+        "textColor": "#FFFFFFFF",
+        "iconColor": "#FFFFFFFF"
+    },
+    "scrollbar": {
+        "backgroundColor": "#1F1F1FFF",
+        "handleColor": "#333333FF"
+    },
+    "navigationBar": {
+        "iconColor": "#058fdfFF"
+    },
+    "videoPlayer": {
+        "controlStrip": {
+            "backgroundColor": "#000000AA",
+            "iconColor": "#FFFFFFFF",
+            "statusBar": {
+                "backgroundColor": "#fab1a0FF",
+                "fillAreaColor": "#e17055FF",
+                "handleColor": "#FFFFFFFF"
+            }
+        },
+        "playButton": {
+            "backgroundColor": "#e85363FF",
+            "textColor": "#FFFFFFFF"
+        },
+        "backToLibraryButton": {
+            "backgroundColor": "#e85363FF",
+            "textColor": "#FFFFFFFF"
+        }
+    },
+    "helpCenter": {
+        "backgroundColor": "#1F1F1FEE",
+        "titleColor": "#FFFFFFFF",
+        "textColor": "#FFFFFFFF",
+        "button": {
+            "backgroundColor": "#00a1deFF",
+            "iconColor": "#FFFFFFFF",
+            "textColor": "#FFFFFFFF"
+        },
+        "orientationOverlay": {
+            "backgroundColor": "#1F1F1FEE",
+            "textColor": "#FFFFFFFF",
+            "button": {
+                "backgroundColor": "#00a1deFF",
+                "iconColor": "#FFFFFFFF",
+                "textColor": "#FFFFFFFF"
+            }
+        },
+        "customMessageOverlay": {
+            "inputField": {
+                "backgroundColor": "#FFFFFFFF",
+                "textColor": "#161616FF"
+            },
+            "button": {
+                "backgroundColor": "#00a1deFF",
+                "textColor": "#FFFFFFFF"
+            }
+        },
+        "phoneNumber": "+31 (0)73 890 7729"
+    },
+    "scents": {
+        "1": "Grass",
+        "2": "Smoke",
+        "3": "Metal",
+        "4": "Misty swamp",
+        "5": "Sea",
+        "6": "Reptile",
+        "7": "N/A",
+        "8": "N/A",
+        "9": "N/A",
+        "10": "N/A",
+        "11": "N/A",
+        "12": "N/A"
+    },
+    "areOptionsAvailable": false,
+    "useCoverArtAsThumbnail": true,
+    "SenseController": {
+        "showExperienceDownloaderButton": true
+    },
+    "experienceDownloader": {
+        
+    },
+    "homeView": {
+        "experienceItem": {
+            "showPrice": false,
+            "showTitle": true
+        }
+    },
+    "externalServices": {
+        "videoDownloadService": ""
+    },
+    "overlay": {
+        "backgroundColor": "#FFFFFFDD",
+        "textColor": "#00a1deFF",
+        "loadingIndicator": "#00a1deFF"
+    },
+    "footer": {
+        "sensiksLogo": {
+            "textColor": "#1F1F1FFF"
+        },
+        "helpButton": {
+            "backgroundColor": "#e85363FF",
+            "textColor": "#FFFFFFFF"
+        },
+        "feedbackButton": {
+            "backgroundColor": "#e85363FF",
+            "textColor": "#FFFFFFFF"
+        }
+    },
+    "keyboard": {
+        "backgroundColor": "#000000FF",
+        "buttons": {
+            "backgroundColor": "#302f37",
+            "activeColor": "#00a1deFF",
+            "textColor": "#FFFFFFFF"
+        }
+    },
+    "ratingsOverlay": {
+        "backgroundColor": "#1F1F1FDD",
+        "textColor": "#FFFFFFFF"
+    },
+    "inputWindow": {
+        "backgroundColor": "#1F1F1FEE",
+        "titleColor": "#FFFFFFFF",
+        "textColor": "#FFFFFFFF",
+        "button": {
+            "backgroundColor": "#00a1deFF",
+            "iconColor": "#FFFFFFFF",
+            "textColor": "#FFFFFFFF"
+        },
+        "inputField": {
+            "backgroundColor": "#FFFFFFFF",
+            "textColor": "#161616FF"
+        }
+    },
+    "defaults": {
+        "ceiling": {
+            "animation": "SKY"
+        },
+        "lightPanels": {
+            "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+            }
+        }
+    },
+    "enableExperienceFeedback": false,
+    "cooldown": {
+        "fanSpeed": 0.5,
+        "duration": 30.0
+    },
+    "goToSplashScreenTimeout": 300000,
+    "experienceGridItemWidth": 3,
+    "maxAssetCacheItemCount": 32,
+    "enablePayment": false,
+    "requestRatings": true,
+    "enableSynchronization": false
+}
