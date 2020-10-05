@@ -41,7 +41,12 @@
     {
         "backgroundColor": "#222222FF",
         "thumbnailTint": "#FFFFFFFF",
-        "actuatorsBackgroud": "#333333FF"
+        "actuatorsBackgroud": "#333333FF",
+        "ceilingButtonBackground": "#FFFFFFFF",
+        "ceilingButtonText": "#000000FF",
+        "actuatorsTitle": "#FFFFFFFF",
+        "actuatorsSliderText": "#FFFFFFFF",
+        "addButton": "#000000FF"
     },
     "button": {
         "backgroundColor": "#00a1deFF",
