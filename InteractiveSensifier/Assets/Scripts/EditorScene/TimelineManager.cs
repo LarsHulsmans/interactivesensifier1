@@ -9,7 +9,8 @@ using System.Globalization;
 public class TimelineManager : MonoBehaviour
 {
     public GameObject ActuatorTrackPrefab;
-
+    public Transform trackHolder;
+    private List<ActuatorTrack> actuatorTracks = new List<ActuatorTrack>();
 
     private void Start()
     {
@@ -20,56 +21,64 @@ public class TimelineManager : MonoBehaviour
     {
         foreach (FanPosition f in Enum.GetValues(typeof(FanPosition)))
         {
-            UnityEngine.Debug.Log(Pascal(f.ToString()));
+            //UnityEngine.Debug.Log(StringExtentions.Pascal(f.ToString()));
+            GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
+            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            trackBehaviour.SetType(ActuatorType.FAN);
+            trackBehaviour.SetPosition(f);
+            actuatorTracks.Add(trackBehaviour);
         }
         foreach (HeaterPosition h in Enum.GetValues(typeof(HeaterPosition))) 
         {
-            UnityEngine.Debug.Log(Pascal(h.ToString()));
+            //UnityEngine.Debug.Log(StringExtentions.Pascal(h.ToString()));
+            GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
+            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            trackBehaviour.SetType(ActuatorType.HEATER);
+            trackBehaviour.SetPosition(h);
+            actuatorTracks.Add(trackBehaviour);
         }
         foreach(Scent s in Enum.GetValues(typeof(Scent))) 
         {
-            UnityEngine.Debug.Log(Pascal(s.ToString()));
+            //UnityEngine.Debug.Log(StringExtentions.Pascal(s.ToString()));
+            if (!s.ToString().ToLower().Contains("newscent")) 
+            {
+                GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
+                ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+                trackBehaviour.SetType(ActuatorType.SCENT);
+                trackBehaviour.SetPosition(s);
+                actuatorTracks.Add(trackBehaviour);
+            }
         }
         foreach (LightPanelPosition p in Enum.GetValues(typeof(LightPanelPosition)))
         {
-            foreach (LightPanelChannel c in Enum.GetValues(typeof(LightPanelChannel)))
+            /*foreach (LightPanelChannel c in Enum.GetValues(typeof(LightPanelChannel)))
             {
-                UnityEngine.Debug.Log(Pascal(p.ToString() + " : " + c.ToString()));
-            }
+                //UnityEngine.Debug.Log(StringExtentions.Pascal(p.ToString() + " : " + c.ToString()));
+            }*/
+            GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
+            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            trackBehaviour.SetType(ActuatorType.LIGHT_PANEL);
+            trackBehaviour.SetPosition(p);
+            actuatorTracks.Add(trackBehaviour);
+
         }
-        foreach (CeilingAnimation a in Enum.GetValues(typeof(CeilingAnimation)))
         {
-            UnityEngine.Debug.Log(Pascal(a.ToString()));
+            GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
+            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            trackBehaviour.SetType(ActuatorType.CEILING);
+            actuatorTracks.Add(trackBehaviour);
         }
-    }
-    
-    public string Pascal(string s)
-    {
-        System.Text.StringBuilder resultBuilder = new System.Text.StringBuilder();
 
-        foreach (char c in s)
+        foreach(ActuatorTrack a in actuatorTracks) 
         {
-            // Replace anything, but letters and digits, with space
-            if (!Char.IsLetterOrDigit(c))
-            {
-                resultBuilder.Append(" ");
-            }
-            else
-            {
-                resultBuilder.Append(c);
-            }
+            a.SetTrackLength(100);
         }
 
-        string result = resultBuilder.ToString();
-
-        // Make result string all lowercase, because ToTitleCase does not change all uppercase correctly
-        result = result.ToLower();
-
-        // Creates a TextInfo based on the "en-US" culture.
-        TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
-
-        result = myTI.ToTitleCase(result);//.Replace(" ", String.Empty);
-
-        return result;
+        trackHolder.gameObject.GetComponent<ScaleContainer>().ScaleContent();
+        /*foreach (CeilingAnimation a in Enum.GetValues(typeof(CeilingAnimation)))
+        {
+            //UnityEngine.Debug.Log(StringExtentions.Pascal(a.ToString()));
+        }*/
     }
+
 }

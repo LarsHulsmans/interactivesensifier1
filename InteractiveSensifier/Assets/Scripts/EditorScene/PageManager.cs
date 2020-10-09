@@ -15,6 +15,8 @@ public class PageManager : MonoBehaviour
 
     public bool sliding = false;
 
+    public bool busy = false;
+
     private float deltaSlidingX;
 
     public float slidingMultiplier = 1;
@@ -130,6 +132,7 @@ public class PageManager : MonoBehaviour
     public void PointerDown() 
     {
         sliding = true;
+        busy = true;
         deltaSlidingX = Input.mousePosition.x;
         if(returnPage != null) 
         {
@@ -176,6 +179,7 @@ public class PageManager : MonoBehaviour
         thisTransform.localPosition = new Vector2(xPosTo, thisTransform.localPosition.y);
         currentStationaryPos = (int)thisTransform.localPosition.x;
         returnPage = null;
+        busy = false;
     }
 
     private int Closer(int a, int b, int compareValue)

@@ -6,6 +6,7 @@ public class LightpanelKeyframe : IKeyframe
 {
     public float timestamp { get; set; }
     public Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType actuatorType { get; set; }
+    public Sensiks.SDK.Shared.SensiksDataTypes.LightPanelPosition position;
     public int r, g, b, w;
     public LightpanelKeyframe(float timestamp)
     {
