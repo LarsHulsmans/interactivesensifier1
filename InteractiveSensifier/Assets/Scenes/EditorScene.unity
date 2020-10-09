@@ -2684,7 +2684,8 @@ MonoBehaviour:
   indicatorSliderGO: {fileID: 529972983}
   indicatorSlider: {fileID: 529972985}
   timeIndication: {fileID: 1198323870}
-  followObject: {fileID: 0}
+  followObject: {fileID: 1950382619}
+  thisTrans: {fileID: 330220929}
 --- !u!1 &416468004
 GameObject:
   m_ObjectHideFlags: 0
