@@ -22,6 +22,11 @@ public class TimeIndicatorBehaviour : MonoBehaviour
 
     float deltapos = 0;
 
+    public PageManager manager;
+
+    public float xoffset = -222.34f;
+    private bool xoffsetApplied = false;
+
     private void Start()
     {
         StartCoroutine(startSetup());
@@ -42,20 +47,20 @@ public class TimeIndicatorBehaviour : MonoBehaviour
         {
             GameObject temp = GameObject.Instantiate(tenSecondsPrefab, this.transform);
             RectTransform tempTrans = temp.GetComponent<RectTransform>();
-            float xpos = 240 + (i * 200);
+            float xpos = i * 200;
             tempTrans.localPosition = new Vector3(xpos, -22.5f, 0);
             temp.GetComponent<TimelineIndicatorSecond>().Setup(i * 10);
         }
 
-        float width = 240 + (segments * 200);
-        GetComponent<RectTransform>().sizeDelta = new Vector2(width, GetComponent<RectTransform>().sizeDelta.y);
+        float width = segments * 200;
+        thisTrans.sizeDelta = new Vector2(width, thisTrans.sizeDelta.y);
 
         indicatorSliderGO.transform.SetAsLastSibling();
 
-        //todo: set slider lenght
+        //set slider lenght
         RectTransform sliderRect = indicatorSliderGO.GetComponent<RectTransform>();
-
         sliderRect.sizeDelta = new Vector2(duration * 20 , sliderRect.sizeDelta.y);
+        sliderRect.localPosition = new Vector2(-5, sliderRect.localPosition.y);
 
     }
 
@@ -78,8 +83,16 @@ public class TimeIndicatorBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (!xoffsetApplied) 
+        {
+            thisTrans.transform.localPosition += new Vector3(xoffset, 0, 0);
 
-        thisTrans.transform.localPosition += new Vector3(followObject.transform.position.x - deltapos ,0, 0);
-        deltapos = followObject.transform.position.x;
+            xoffsetApplied = true;
+        }
+        if (!manager.busy) 
+        {
+            thisTrans.transform.localPosition += new Vector3(followObject.transform.position.x - deltapos, 0, 0);
+            deltapos = followObject.transform.position.x;
+        }
     }
 }

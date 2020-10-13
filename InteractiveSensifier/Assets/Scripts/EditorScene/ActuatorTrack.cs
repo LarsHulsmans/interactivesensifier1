@@ -85,10 +85,10 @@ public class ActuatorTrack : MonoBehaviour
 
         tracklenght = videoLenght * lenghtPerSecond;
 
-        RectTransform thisTransform = GetComponent<RectTransform>();
-        thisTransform.sizeDelta = new Vector2(235 + tracklenght , thisTransform.sizeDelta.y);
+        RectTransform thisTransform = track.GetComponent<RectTransform>();
+        thisTransform.sizeDelta = new Vector2(tracklenght , thisTransform.sizeDelta.y);
 
-        transform.parent.GetComponent<ScaleContainer>().ScaleContent();
+        track.transform.parent.GetComponent<ScaleContainer>().ScaleContent();
     }
 
     public void AddKeyframe(float timestamp) 

@@ -9,7 +9,9 @@ using System.Globalization;
 public class TimelineManager : MonoBehaviour
 {
     public GameObject ActuatorTrackPrefab;
+    public GameObject ActuatorCardPrefab;
     public Transform trackHolder;
+    public Transform cardHolder;
     private List<ActuatorTrack> actuatorTracks = new List<ActuatorTrack>();
 
     private void Start()
@@ -23,7 +25,9 @@ public class TimelineManager : MonoBehaviour
         {
             //UnityEngine.Debug.Log(StringExtentions.Pascal(f.ToString()));
             GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
-            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            GameObject card = GameObject.Instantiate(ActuatorCardPrefab, cardHolder);
+            ActuatorTrack trackBehaviour = card.GetComponent<ActuatorTrack>();
+            trackBehaviour.track = track.GetComponent<RectTransform>();
             trackBehaviour.SetType(ActuatorType.FAN);
             trackBehaviour.SetPosition(f);
             actuatorTracks.Add(trackBehaviour);
@@ -32,7 +36,9 @@ public class TimelineManager : MonoBehaviour
         {
             //UnityEngine.Debug.Log(StringExtentions.Pascal(h.ToString()));
             GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
-            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            GameObject card = GameObject.Instantiate(ActuatorCardPrefab, cardHolder);
+            ActuatorTrack trackBehaviour = card.GetComponent<ActuatorTrack>();
+            trackBehaviour.track = track.GetComponent<RectTransform>();
             trackBehaviour.SetType(ActuatorType.HEATER);
             trackBehaviour.SetPosition(h);
             actuatorTracks.Add(trackBehaviour);
@@ -43,7 +49,9 @@ public class TimelineManager : MonoBehaviour
             if (!s.ToString().ToLower().Contains("newscent")) 
             {
                 GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
-                ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+                GameObject card = GameObject.Instantiate(ActuatorCardPrefab, cardHolder);
+                ActuatorTrack trackBehaviour = card.GetComponent<ActuatorTrack>();
+                trackBehaviour.track = track.GetComponent<RectTransform>();
                 trackBehaviour.SetType(ActuatorType.SCENT);
                 trackBehaviour.SetPosition(s);
                 actuatorTracks.Add(trackBehaviour);
@@ -56,7 +64,9 @@ public class TimelineManager : MonoBehaviour
                 //UnityEngine.Debug.Log(StringExtentions.Pascal(p.ToString() + " : " + c.ToString()));
             }*/
             GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
-            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            GameObject card = GameObject.Instantiate(ActuatorCardPrefab, cardHolder);
+            ActuatorTrack trackBehaviour = card.GetComponent<ActuatorTrack>();
+            trackBehaviour.track = track.GetComponent<RectTransform>();
             trackBehaviour.SetType(ActuatorType.LIGHT_PANEL);
             trackBehaviour.SetPosition(p);
             actuatorTracks.Add(trackBehaviour);
@@ -64,7 +74,9 @@ public class TimelineManager : MonoBehaviour
         }
         {
             GameObject track = GameObject.Instantiate(ActuatorTrackPrefab, trackHolder);
-            ActuatorTrack trackBehaviour = track.GetComponent<ActuatorTrack>();
+            GameObject card = GameObject.Instantiate(ActuatorCardPrefab, cardHolder);
+            ActuatorTrack trackBehaviour = card.GetComponent<ActuatorTrack>();
+            trackBehaviour.track = track.GetComponent<RectTransform>();
             trackBehaviour.SetType(ActuatorType.CEILING);
             actuatorTracks.Add(trackBehaviour);
         }
@@ -80,5 +92,4 @@ public class TimelineManager : MonoBehaviour
             //UnityEngine.Debug.Log(StringExtentions.Pascal(a.ToString()));
         }*/
     }
-
 }
