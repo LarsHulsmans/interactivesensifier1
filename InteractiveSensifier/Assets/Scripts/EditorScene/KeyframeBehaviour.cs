@@ -10,6 +10,8 @@ public class KeyframeBehaviour : MonoBehaviour
 
     public RectTransform button;
 
+    public ActuatorTrack track;
+
     public Slider slider;
 
     public GameObject editValueSlider;
@@ -55,6 +57,13 @@ public class KeyframeBehaviour : MonoBehaviour
                 break;
         }
         
+    }
+
+    public void DeleteThisKeyframe()
+    {
+        CloseEdit();
+        track.RemoveKeyframe(Keyframe);
+        GameObject.Destroy(this.gameObject);
     }
 
     public void OpenEdit() 

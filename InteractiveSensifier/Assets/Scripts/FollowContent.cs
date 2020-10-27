@@ -9,14 +9,16 @@ public class FollowContent : MonoBehaviour
     public RectTransform followObject;
     private RectTransform thisTransform;
 
-    private float deltaposX;
-    private float deltaposY;
+    private float deltaposX = 0;
+    private float deltaposY = 0;
 
     public float startY;
 
     private void Start()
     {
         thisTransform = GetComponent<RectTransform>();
+        deltaposY = followObject.transform.position.y;
+        deltaposX = followObject.transform.position.x;
         //thisTransform.localPosition = new Vector3(1170, thisTransform.localPosition.y, 0);
     }
 

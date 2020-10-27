@@ -15,6 +15,7 @@ public class ActuatorTrack : MonoBehaviour
     float tracklenght;
 
     public List<IKeyframe> keyframes = new List<IKeyframe>();
+    public List<GameObject> keyframegameobjects = new List<GameObject>();
     public GameObject KeyframePrefab;
 
     public Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType actuatorType;
@@ -91,6 +92,11 @@ public class ActuatorTrack : MonoBehaviour
         track.transform.parent.GetComponent<ScaleContainer>().ScaleContent();
     }
 
+    public void AddKeyframe()
+    {
+        AddKeyframe(TimelineManager.instance.GetCurrentTime());
+    }
+
     public void AddKeyframe(float timestamp) 
     {
         Debug.Log(actuatorType);
@@ -123,6 +129,8 @@ public class ActuatorTrack : MonoBehaviour
         GameObject keyframeGameObject = GameObject.Instantiate(KeyframePrefab, track);
         keyframeGameObject.GetComponent<RectTransform>().localPosition = new Vector2( keyframeXPos, -50);
         keyframeGameObject.GetComponent<KeyframeBehaviour>().AddKeyframe(keyframes[keyframes.Count-1]);
+        keyframeGameObject.GetComponent<KeyframeBehaviour>().track = this;
+        keyframegameobjects.Add(keyframeGameObject);
     }
 
     public void RemoveKeyframe(IKeyframe frame) 

@@ -24,8 +24,10 @@ public class TimeIndicatorBehaviour : MonoBehaviour
 
     public PageManager manager;
 
-    public float xoffset = -222.34f;
+    public float xoffset = 0;//-222.34f;
     private bool xoffsetApplied = false;
+
+    public float currentTime;
 
     private void Start()
     {
@@ -35,10 +37,10 @@ public class TimeIndicatorBehaviour : MonoBehaviour
     IEnumerator startSetup() 
     {
         yield return new WaitForEndOfFrame();
-        Setup(100);
+        Setup(100.0f);
     }
 
-    public void Setup(int duration) 
+    public void Setup(float duration) 
     {
         totalTime = duration;
         int segments = Mathf.CeilToInt(duration / 10.0f);
@@ -64,10 +66,16 @@ public class TimeIndicatorBehaviour : MonoBehaviour
 
     }
 
+    public float getCurrentTime()
+    {
+        return totalTime * indicatorSlider.value;
+    }
+
     public void TimeChaned() 
     {
         float timePercentage = indicatorSlider.value;
         float actualTime = totalTime * timePercentage;
+        currentTime = actualTime;
         timeIndication.text = SecondsToString(actualTime);
     }
 

@@ -2764,6 +2764,7 @@ MonoBehaviour:
   thisTrans: {fileID: 330220929}
   manager: {fileID: 570432776}
   xoffset: -60
+  currentTime: 0
 --- !u!1 &416468004
 GameObject:
   m_ObjectHideFlags: 0
@@ -8752,6 +8753,7 @@ MonoBehaviour:
     type: 3}
   trackHolder: {fileID: 1950382619}
   cardHolder: {fileID: 647856117}
+  timeIndicator: {fileID: 330220932}
 --- !u!1001 &1467916882
 PrefabInstance:
   m_ObjectHideFlags: 0

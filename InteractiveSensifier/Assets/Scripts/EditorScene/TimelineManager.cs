@@ -14,8 +14,13 @@ public class TimelineManager : MonoBehaviour
     public Transform cardHolder;
     private List<ActuatorTrack> actuatorTracks = new List<ActuatorTrack>();
 
+    public TimeIndicatorBehaviour timeIndicator;
+
+    public static TimelineManager instance;
+
     private void Start()
     {
+        instance = this;
         SetupActuators();
     }
 
@@ -91,5 +96,9 @@ public class TimelineManager : MonoBehaviour
         {
             //UnityEngine.Debug.Log(StringExtentions.Pascal(a.ToString()));
         }*/
+    }
+    public float GetCurrentTime()
+    {
+        return timeIndicator.getCurrentTime();
     }
 }
