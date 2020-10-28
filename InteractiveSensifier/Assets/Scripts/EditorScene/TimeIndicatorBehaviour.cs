@@ -62,7 +62,7 @@ public class TimeIndicatorBehaviour : MonoBehaviour
         //set slider lenght
         RectTransform sliderRect = indicatorSliderGO.GetComponent<RectTransform>();
         sliderRect.sizeDelta = new Vector2(duration * 20 , sliderRect.sizeDelta.y);
-        sliderRect.localPosition = new Vector2(-5, sliderRect.localPosition.y);
+        sliderRect.localPosition = new Vector2(5, sliderRect.localPosition.y);
 
     }
 

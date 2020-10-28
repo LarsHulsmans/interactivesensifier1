@@ -92,12 +92,34 @@ public class ActuatorTrack : MonoBehaviour
         track.transform.parent.GetComponent<ScaleContainer>().ScaleContent();
     }
 
+
+    public void AddKeyframeWithValue(int value)
+    {
+        float timestamp = TimelineManager.instance.GetCurrentTime();
+        AddKeyframe(timestamp, value);
+    }
+
+    public void AddKeyframeWithValue(int r, int g, int b, int w)
+    {
+        float timestamp = TimelineManager.instance.GetCurrentTime();
+        if(actuatorType == Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.LIGHT_PANEL)
+        {
+            AddKeyframe(timestamp, r, g, b, w);
+        }
+    }
+
+    public void AddKeyframeWithValue(Sensiks.SDK.Shared.SensiksDataTypes.CeilingAnimation anim)
+    {
+        float timestamp = TimelineManager.instance.GetCurrentTime();
+        AddKeyframe(timestamp, anim);
+    }
+
     public void AddKeyframe()
     {
         AddKeyframe(TimelineManager.instance.GetCurrentTime());
     }
 
-    public void AddKeyframe(float timestamp) 
+    public void AddKeyframe(float timestamp, int value = 0) 
     {
         Debug.Log(actuatorType);
         //IKeyframe frame = null;
@@ -105,14 +127,17 @@ public class ActuatorTrack : MonoBehaviour
         {
             case Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.HEATER:
                 HeaterKeyframe hFrame = new HeaterKeyframe(timestamp);
+                hFrame.intensity = value;
                 keyframes.Add(hFrame);
                 break;
             case Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.FAN:
                 FanKeyframe fFrame = new FanKeyframe(timestamp);
+                fFrame.intensity = value;
                 keyframes.Add(fFrame);
                 break;
             case Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.SCENT:
                 ScentKeyframe sFrame = new ScentKeyframe(timestamp);
+                sFrame.intensity = value;
                 keyframes.Add(sFrame);
                 break;
             case Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.CEILING:
@@ -125,6 +150,46 @@ public class ActuatorTrack : MonoBehaviour
                 break;
         }
 
+        CreateAndSetKeyframeGameobject(timestamp);
+    }
+
+    public void AddKeyframe(float timestamp, int r, int g, int b, int w) 
+    {
+        Debug.Log(actuatorType);
+        //IKeyframe frame = null;
+        switch (actuatorType) 
+        {
+            case Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.LIGHT_PANEL:
+                LightpanelKeyframe lFrame = new LightpanelKeyframe(timestamp);
+                lFrame.r = r;
+                lFrame.g = g;
+                lFrame.b = b;
+                lFrame.w = w;
+                keyframes.Add(lFrame);
+                break;
+        }
+
+        CreateAndSetKeyframeGameobject(timestamp);
+    }
+    //add ceiling keyframe with animation
+    public void AddKeyframe(float timestamp, Sensiks.SDK.Shared.SensiksDataTypes.CeilingAnimation animation) 
+    {
+        Debug.Log(actuatorType);
+        //IKeyframe frame = null;
+        switch (actuatorType) 
+        {
+            case Sensiks.SDK.Shared.SensiksDataTypes.ActuatorType.CEILING:
+                CeilingAnimationKeyframe cFrame = new CeilingAnimationKeyframe(timestamp);
+                cFrame.animation = animation;
+                keyframes.Add(cFrame);
+                break;
+        }
+
+        CreateAndSetKeyframeGameobject(timestamp);
+    }
+
+    private void CreateAndSetKeyframeGameobject(float timestamp)
+    {
         float keyframeXPos = timestamp * lenghtPerSecond;
         GameObject keyframeGameObject = GameObject.Instantiate(KeyframePrefab, track);
         keyframeGameObject.GetComponent<RectTransform>().localPosition = new Vector2( keyframeXPos, -50);

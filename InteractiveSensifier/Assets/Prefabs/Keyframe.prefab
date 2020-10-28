@@ -3122,6 +3122,7 @@ MonoBehaviour:
   editValueSlider: {fileID: 8684005064503541137}
   editValueCeiling: {fileID: 6494269081165483679}
   editValueLightpanels: {fileID: 5203222374122959682}
+  timestamp: 0
 --- !u!1 &1713815062263550313
 GameObject:
   m_ObjectHideFlags: 0

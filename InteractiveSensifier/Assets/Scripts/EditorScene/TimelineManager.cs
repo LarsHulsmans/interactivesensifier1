@@ -12,7 +12,7 @@ public class TimelineManager : MonoBehaviour
     public GameObject ActuatorCardPrefab;
     public Transform trackHolder;
     public Transform cardHolder;
-    private List<ActuatorTrack> actuatorTracks = new List<ActuatorTrack>();
+    public List<ActuatorTrack> actuatorTracks = new List<ActuatorTrack>();
 
     public TimeIndicatorBehaviour timeIndicator;
 

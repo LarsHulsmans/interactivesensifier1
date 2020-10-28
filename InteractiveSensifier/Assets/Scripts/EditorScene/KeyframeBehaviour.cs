@@ -18,9 +18,12 @@ public class KeyframeBehaviour : MonoBehaviour
     public GameObject editValueCeiling;
     public GameObject editValueLightpanels;
 
+    public float timestamp;
+
     public void AddKeyframe(IKeyframe frame) 
     {
         this.Keyframe = frame;
+        timestamp = Keyframe.timestamp;
         Debug.Log(frame.actuatorType);
         switch (frame.actuatorType) 
         {
